@@ -1,0 +1,11 @@
+version: '3.8'  # version of Docker Compose file format
+
+services:
+  nginx:
+    build: .  # Build the image using the Dockerfile in the current directory
+    ports:
+      - "80:80"  # Expose port 80 on the host and bind it to port 80 in the container
+    volumes:
+      - ./html:/usr/share/nginx/html  # Optionally map a directory for custom content
+    networks:
+      - nginx_network
