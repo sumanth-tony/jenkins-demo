@@ -1,8 +1,9 @@
-# Use the official Nginx image from Docker Hub
-FROM nginx:latest
+# Use the official Apache HTTPD image
+FROM httpd:latest
 
-# Expose port 80 (default HTTP port for Nginx)
+# Add your HTML content (even though you don't have a custom folder, 
+# you can directly create a basic HTML file inside the container)
+COPY ./index.html /usr/local/apache2/htdocs/
+
+# Expose port 80 to allow access to the server
 EXPOSE 80
-
-# Start Nginx in the foreground (this keeps the container running)
-CMD ["nginx", "-g", "daemon off;"]
