@@ -1,11 +1,8 @@
-# Use the official Nginx image
+# Use the official Nginx image from Docker Hub
 FROM nginx:latest
 
-# Modify the default configuration to listen on port 8081
-RUN sed -i 's/listen       80;/listen       8081;/' /etc/nginx/nginx.conf
+# Expose port 80 (default HTTP port for Nginx)
+EXPOSE 80
 
-# Expose port 8081
-EXPOSE 8081
-
-# Start Nginx
+# Start Nginx in the foreground (this keeps the container running)
 CMD ["nginx", "-g", "daemon off;"]
