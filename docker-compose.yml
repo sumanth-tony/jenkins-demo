@@ -1,15 +1,9 @@
-version: '3.8'  # version of Docker Compose file format
+version: '3.8'
 
 services:
-  nginx:
-    build: .  # Build the image using the Dockerfile in the current directory
+  apache:
+    build: .  # Build from the current directory
     ports:
-      - "80:80"  # Expose port 80 on the host and bind it to port 80 in the container
+      - "8080:80"  # Map host port 8080 to container port 80
     volumes:
-      - ./html:/usr/share/nginx/html  # Optionally map a directory for custom content
-    networks:
-      - nginx_network
-
-networks:
-  nginx_network:
-    driver: bridge
+      - ./index.html:/usr/local/apache2/htdocs/index.html  # Mount index.html
