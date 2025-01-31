@@ -9,3 +9,7 @@ services:
       - ./html:/usr/share/nginx/html  # Optionally map a directory for custom content
     networks:
       - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
